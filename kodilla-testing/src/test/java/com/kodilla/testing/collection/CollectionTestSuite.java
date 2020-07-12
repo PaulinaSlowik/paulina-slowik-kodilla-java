@@ -2,6 +2,7 @@ package com.kodilla.testing.collection;
 
 import org.junit.*;
 import java.util.*;
+import java.lang.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,38 +23,49 @@ public class CollectionTestSuite {
         ArrayList<Integer> list = OddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing "+ list);
         //Then
-        assertEquals(emptyList,list);
+        Assert.assertEquals(emptyList,list);
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
         //Given
         ArrayList<Integer>oddNumbers = new ArrayList<Integer>();
-        oddNumbers.add(8);
-        oddNumbers.add(12);
-        oddNumbers.add(18);
-        oddNumbers.add(20);
-        oddNumbers.add(26);
-        //ArrayList<Integer> evenAndOdd  = new ArrayList<Integer>(Arrays.asList(8,9,12,15,18,20,25,26,30));
-        //ArrayList<Integer> odd  = new ArrayList<Integer>(Arrays.asList(9,15,25,26));
+        oddNumbers.add(9);
+        oddNumbers.add(13);
+        oddNumbers.add(19);
+        oddNumbers.add(21);
+        oddNumbers.add(27);
         //When
         ArrayList<Integer> listOdd = OddNumbersExterminator.exterminate(oddNumbers);
         System.out.println("Testing " + listOdd);
         //Then
-        assertEquals(Arrays.asList(oddNumbers), Arrays.asList(listOdd));
+        Assert.assertEquals(oddNumbers, listOdd);
     }
     @Test
     public void testEvenNumbersExterminatorNormalList(){
         //Given
         ArrayList<Integer>evenNumbers = new ArrayList<Integer>();
-        evenNumbers.add(9);
-        evenNumbers.add(13);
-        evenNumbers.add(19);
-        evenNumbers.add(21);
-        evenNumbers.add(27);
+        evenNumbers.add(8);
+        evenNumbers.add(18);
+        evenNumbers.add(20);
+        evenNumbers.add(28);
         //When
         ArrayList<Integer> listEven = OddNumbersExterminator.exterminate(evenNumbers);
         System.out.println("Testing " + listEven);
         //Then
-        assertEquals(Arrays.asList(evenNumbers), Arrays.asList(listEven));
+        Assert.assertEquals(evenNumbers,listEven);
+    }
+    @Test
+    public void testMixedNumbersExterminatorNormalList(){
+        //Given
+        ArrayList<Integer>mixedNumbers = new ArrayList<Integer>();
+        mixedNumbers.add(8);
+        mixedNumbers.add(17);
+        mixedNumbers.add(20);
+        mixedNumbers.add(21);
+        //When
+        ArrayList<Integer> listMixed = OddNumbersExterminator.exterminate(mixedNumbers);
+        System.out.println("Testing " + listMixed);
+        //Then
+        Assert.assertEquals(mixedNumbers,listMixed);
     }
 }
