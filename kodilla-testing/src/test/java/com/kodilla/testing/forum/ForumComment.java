@@ -12,14 +12,17 @@ public class ForumComment {
     }
 
     public ForumPost getForumPost() {
+
         return forumPost;
     }
 
     public String getCommentPost() {
+
         return commentBody;
     }
 
     public String getAuthor() {
+
         return author;
     }
     @Override

@@ -4,8 +4,6 @@ import org.junit.*;
 import java.util.*;
 import java.lang.*;
 
-import static org.junit.Assert.assertEquals;
-
 public class CollectionTestSuite {
     @Before
     public void before(){
@@ -29,11 +27,6 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList(){
         //Given
         ArrayList<Integer>oddNumbers = new ArrayList<Integer>();
-        oddNumbers.add(9);
-        oddNumbers.add(13);
-        oddNumbers.add(19);
-        oddNumbers.add(21);
-        oddNumbers.add(27);
         //When
         ArrayList<Integer> listOdd = OddNumbersExterminator.exterminate(oddNumbers);
         System.out.println("Testing " + listOdd);
@@ -59,9 +52,9 @@ public class CollectionTestSuite {
         //Given
         ArrayList<Integer>mixedNumbers = new ArrayList<Integer>();
         mixedNumbers.add(8);
-        mixedNumbers.add(17);
+        mixedNumbers.add(16);
         mixedNumbers.add(20);
-        mixedNumbers.add(21);
+        mixedNumbers.add(22);
         //When
         ArrayList<Integer> listMixed = OddNumbersExterminator.exterminate(mixedNumbers);
         System.out.println("Testing " + listMixed);
