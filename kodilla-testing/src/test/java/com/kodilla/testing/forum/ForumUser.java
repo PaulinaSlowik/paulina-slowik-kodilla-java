@@ -22,7 +22,8 @@ public class ForumUser {
     }
 
     public void addComment(ForumPost thePost, String author, String commentBody){ //metodę pozwalającą na dodawanie komentarzy, które zostały wystawione przez użytkownika
-        // do nothing
+        ForumComment theComment = new ForumComment(thePost, commentBody, author);
+        comments.add(theComment);
     }
     //metody do odczytu wszystkich pól (gettery)
     public int getPostsQuantity(){
@@ -30,28 +31,41 @@ public class ForumUser {
     }
 
     public int getCommentsQuantity(){
-        // return 100 temporarily
-        return 100;
+        return comments.size();
     }
 
     public ForumPost getPost(int postNumber){
-        // returning null means that the operation was unsuccessful
-        return null;
+        ForumPost thePost = null;
+        if (postNumber >= 0 && postNumber < posts.size()) {
+            thePost = posts.get(postNumber);
+        }
+        return thePost;
     }
 
     public ForumComment getComment(int commentNumber){
-        // returning null means that the operation was unsuccessful
-        return null;
+        ForumComment theComment = null;
+        if (commentNumber >= 0 && commentNumber < comments.size()){
+            theComment = comments.get(commentNumber);
+        }
+        return theComment;
     }
     //metody pozwalające na usunięcie wybranych postów i komentarzy
     public boolean removePost(ForumPost thePost){
-        // return true temporarily
-        return true;
+        boolean result = false;
+        if (posts.contains(thePost)){
+            posts.remove(thePost);
+            result = true;
+        }
+        return result;
     }
 
     public boolean removeComment(ForumComment theComment){
-        // return true temporarily
-        return true;
+        boolean result = false;
+        if (comments.contains(theComment)){
+            comments.remove(theComment);
+            result = true;
+        }
+        return result;
     }
 
     public String getName() {
