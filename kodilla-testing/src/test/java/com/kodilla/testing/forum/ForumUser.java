@@ -17,7 +17,8 @@ public class ForumUser {
     }
 
     public void addPost(String author, String postBody){ //metodę pozwalającą na dodawanie postów, które zostały opublikowane przez użytkownika
-        // do nothing
+        ForumPost thePost = new ForumPost(postBody, author);
+        posts.add(thePost);
     }
 
     public void addComment(ForumPost thePost, String author, String commentBody){ //metodę pozwalającą na dodawanie komentarzy, które zostały wystawione przez użytkownika
@@ -25,8 +26,7 @@ public class ForumUser {
     }
     //metody do odczytu wszystkich pól (gettery)
     public int getPostsQuantity(){
-        // return 100 temporarily
-        return 100;
+        return posts.size();
     }
 
     public int getCommentsQuantity(){

@@ -16,7 +16,7 @@ public class ForumComment {
         return forumPost;
     }
 
-    public String getCommentPost() {
+    public String getCommentBody() {
 
         return commentBody;
     }

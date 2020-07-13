@@ -27,11 +27,15 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList(){
         //Given
         ArrayList<Integer>oddNumbers = new ArrayList<Integer>();
+        oddNumbers.add(9);
+        oddNumbers.add(11);
+        oddNumbers.add(13);
+        ArrayList<Integer>expectedList = new ArrayList<Integer>();
         //When
         ArrayList<Integer> listOdd = OddNumbersExterminator.exterminate(oddNumbers);
         System.out.println("Testing " + listOdd);
         //Then
-        Assert.assertEquals(oddNumbers, listOdd);
+        Assert.assertEquals(expectedList, listOdd);
     }
     @Test
     public void testEvenNumbersExterminatorNormalList(){
@@ -52,13 +56,21 @@ public class CollectionTestSuite {
         //Given
         ArrayList<Integer>mixedNumbers = new ArrayList<Integer>();
         mixedNumbers.add(8);
+        mixedNumbers.add(9);
         mixedNumbers.add(16);
+        mixedNumbers.add(17);
         mixedNumbers.add(20);
+        mixedNumbers.add(21);
         mixedNumbers.add(22);
+        ArrayList<Integer>expectedValues = new ArrayList<Integer>();
+        expectedValues.add(8);
+        expectedValues.add(16);
+        expectedValues.add(20);
+        expectedValues.add(22);
         //When
         ArrayList<Integer> listMixed = OddNumbersExterminator.exterminate(mixedNumbers);
         System.out.println("Testing " + listMixed);
         //Then
-        Assert.assertEquals(mixedNumbers,listMixed);
+        Assert.assertEquals(expectedValues,listMixed);
     }
 }
