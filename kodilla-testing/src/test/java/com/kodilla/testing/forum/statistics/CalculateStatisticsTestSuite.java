@@ -93,7 +93,7 @@ public class CalculateStatisticsTestSuite {
         double expectedCalculate = 0.1;
         //Calculate expectedCalculate = new Calculate(100,150,500,150/100.0,500/100.0,500/150.0);
         //Then
-        Assert.assertEquals(expectedCalculate,commentsAveragePerPost);
+        Assert.assertEquals(expectedCalculate,commentsAveragePerPost, 0.1);
     }
     @Test
     public void testCommentsQuantityMoreThanPostsQuantity(){
@@ -116,7 +116,7 @@ public class CalculateStatisticsTestSuite {
         double expectedCalculate = 10;
         //Calculate expectedCalculate = new Calculate(100,500,150,500/100.0,150/100.0,150/500.0);
         //Then
-        Assert.assertEquals(expectedCalculate,commentsAveragePerPost);
+        Assert.assertEquals(expectedCalculate,commentsAveragePerPost,0.01);
     }
     @Test
     public void testUserQuantityIsZero(){
