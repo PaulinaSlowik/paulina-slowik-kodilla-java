@@ -1,4 +1,4 @@
-/*package com.kodilla.testing.weather.stub;
+package com.kodilla.testing.weather.stub;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class WeatherForecastTestSuite {
     }
 }
 
-public class TemperaturesStub implements Temperatures {
+class TemperaturesStub implements Temperatures {
     @Override
     public HashMap<Integer, Double> getTemperatures() {
         HashMap<Integer, Double> stubResult = new HashMap<Integer, Double>();
@@ -34,4 +34,3 @@ public class TemperaturesStub implements Temperatures {
         return stubResult;
     }
 }
-*/
