@@ -1,4 +1,4 @@
-/*package com.kodilla.testing.library;
+package com.kodilla.testing.library;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,13 @@ public class BookLibrary {
 
     LibraryDatabase libraryDatabase;
 
-//konstrukotr służący do tego że podczas tworzenia obiektu klasy BookLibrary będę do tej klasy "wstrzykiwać" przez konstruktor obiekt obsługujący bazę danych
+    //konstrukotr służący do tego że podczas tworzenia obiektu klasy BookLibrary będę do tej klasy "wstrzykiwać" przez konstruktor obiekt obsługujący bazę danych
     public BookLibrary(LibraryDatabase libraryDatabase) {
 
         this.libraryDatabase = libraryDatabase;
     }
 
-    public List<Book> listBooksWithCondition(String titleFragment){
+    public List<Book> listBooksWithCondition(String titleFragment) {
         /*TDD
         List<Book> bookList = new ArrayList<Book>();
         Book book = new Book ("The book title", "The book author", 2000);
@@ -23,7 +23,7 @@ public class BookLibrary {
 
         //temporary returning list of one book
         return bookList;
-        *//*
+        */
         //KOD PO ZAIMPLEMENTOWANIU METODY
         List<Book> bookList = new ArrayList<Book>();
         if (titleFragment.length() < 3) return bookList;
@@ -34,5 +34,7 @@ public class BookLibrary {
         return bookList;
     }
 
-    public
-}*/
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
+    }
+}

@@ -1,4 +1,4 @@
-/*package com.kodilla.testing.library;
+package com.kodilla.testing.library;
 
 public class LibraryUser {
     String firstName;
@@ -51,4 +51,3 @@ public class LibraryUser {
         return result;
     }
 }
-*/

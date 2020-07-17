@@ -1,4 +1,4 @@
-/*package com.kodilla.testing.library;
+package com.kodilla.testing.library;
 
 import org.junit.Test;
 
@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -86,5 +85,30 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
+    @Test //ten test sprawdza trzy scenariusz tzn. gdy użytkownik nie ma wypożyczonych żadnych książek, gdy ma wypożyczoną jedną książkę, gdy ma wypożyczonych 5 książek
+    public void testlistBooksInHandsOf() {
+        //given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUserNonBooks = new LibraryUser("Adam", "Nowak", "694758");
+        LibraryUser libraryUser1Book = new LibraryUser("Anna", "Kowalska", "8015797");
+        LibraryUser libraryUser5Book = new LibraryUser("Tomasz", "Niewiadomski", "51015");
+
+        List<Book> listOfLendBooks0 = new ArrayList<>();
+        List<Book> listOfLendBooks1 = generateListOfNBooks(1);
+        List<Book> listOfLendBooks5 = generateListOfNBooks(5);
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUserNonBooks)).thenReturn(listOfLendBooks0);
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser1Book)).thenReturn(listOfLendBooks1);
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser5Book)).thenReturn(listOfLendBooks5);
+
+        //when
+        List<Book> resultList0 = bookLibrary.listBooksInHandsOf(libraryUserNonBooks);
+        List<Book> resultList1 = bookLibrary.listBooksInHandsOf(libraryUser1Book);
+        List<Book> resultList5 = bookLibrary.listBooksInHandsOf(libraryUser5Book);
+        //then
+        assertEquals(0, resultList0.size());
+        assertEquals(1, resultList1.size());
+        assertEquals(5, resultList5.size());
+    }
 }
-*/
