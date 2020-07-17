@@ -27,6 +27,7 @@ public class CalculateStatisticsTestSuite {
 
         Calculate calculate = new Calculate(statisticsMock);
         //When
+        calculate.calculateAdvStatistics(statisticsMock);
         int forumHasPosts = calculate.getPostsQuantity();
         //Then
         Assert.assertEquals(0,forumHasPosts);

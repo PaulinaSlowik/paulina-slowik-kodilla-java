@@ -50,14 +50,20 @@ public class Calculate {
         this.statistics = statistics;
     }
 
-    public Statistics calculateAdvStatistics(Statistics statistics){
+    public void calculateAdvStatistics(Statistics statistics){
         usersQuantity = statistics.usersNames().size();
         postsQuantity = statistics.postsCount();
         commentsQuantity = statistics.commentsCount();
-        postsAveragePerUser = postsQuantity/usersQuantity;
-        commentsAveragePerUser = commentsQuantity/usersQuantity;
-        commentsAveragePerPost = commentsQuantity/postsQuantity;
-        return statistics;
+        if (usersQuantity >0 ) {
+            postsAveragePerUser = ((double)postsQuantity)/usersQuantity;
+        }
+        if (usersQuantity > 0) {
+            commentsAveragePerUser = ((double)commentsQuantity)/usersQuantity;
+        }
+        if (postsQuantity > 0) {
+            commentsAveragePerPost = ((double)commentsQuantity)/postsQuantity;
+        }
+        //return statistics;
     }
     public void showStatistics(){
         System.out.println("Forum statistics:");

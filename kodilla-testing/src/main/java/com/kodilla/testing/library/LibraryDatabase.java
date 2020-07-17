@@ -1,4 +1,4 @@
-package com.kodilla.testing.library;
+/*package com.kodilla.testing.library;
 
 import java.util.List;
 
@@ -18,3 +18,4 @@ public interface LibraryDatabase {
     // returns number of books returned back
     int returnBooks(LibraryUser libraryUser);
 }
+*/

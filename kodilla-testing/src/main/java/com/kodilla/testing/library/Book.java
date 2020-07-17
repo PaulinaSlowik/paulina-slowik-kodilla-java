@@ -1,4 +1,4 @@
-package com.kodilla.testing.library;
+/*package com.kodilla.testing.library;
 
 public class Book {
     String title;
@@ -52,3 +52,4 @@ public class Book {
         return result;
     }
 }
+*/
