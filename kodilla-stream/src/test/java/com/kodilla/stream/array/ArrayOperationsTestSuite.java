@@ -13,8 +13,8 @@ public class ArrayOperationsTestSuite {
             sum += numbers[i];
         }
         //When
-        double expected = sum/numbers.length();
-        double actual = numbers.getAverage();
+        double expected = sum/numbers.length;
+        double actual = ArrayOperations.getAverage(numbers);
         //Then
         Assert.assertEquals(expected,actual,0.01);
     }
