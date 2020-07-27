@@ -19,5 +19,4 @@ public class ArrayOperationsTestSuite {
         //Then
         Assert.assertEquals(expected,actual,0.01);
     }
-
 }
