@@ -13,11 +13,11 @@ public class FlightSearcher {
         mapOfAirport.put("PAR",true);
         mapOfAirport.put("BAR",false);
 
-        for(Map.Entry<String, Boolean> entry :mapOfAirport.entrySet()){
-            if (entry.getKey() != null) {
-                System.out.println(mapOfAirport);
+        for (Map.Entry<String, Boolean> entry : mapOfAirport.entrySet()) {
+            if (flight.getDepartureAirport() == entry.getKey()) {
+                System.out.println("This flight is avaible");
             } else {
-                throw new RouteNotFoundException("Airport doesn't exist!");
+                throw new RouteNotFoundException("This airport is not support. Please try different one");
             }
         }
     }

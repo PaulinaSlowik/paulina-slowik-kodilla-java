@@ -11,7 +11,9 @@ public class FindFlight {
         try {
             flightSearcher.findFlight(berlinLondon);
         }catch (RouteNotFoundException e){
-            System.out.println("That airport not exist!");
+            System.out.println("That airport not exist! Programme is still working.");
+        } finally {
+            System.out.println("Choose another destination.");
         }
     }
 }
