@@ -14,7 +14,7 @@ public class FlightSearcher {
         mapOfAirport.put("BAR",false);
 
         for (Map.Entry<String, Boolean> entry : mapOfAirport.entrySet()) {
-            if (flight.getDepartureAirport() == entry.getKey()) {
+            if (flight.getDepartureAirport().equals(entry.getKey())) {
                 System.out.println("This flight is avaible");
             } else {
                 throw new RouteNotFoundException("This airport is not support. Please try different one");
