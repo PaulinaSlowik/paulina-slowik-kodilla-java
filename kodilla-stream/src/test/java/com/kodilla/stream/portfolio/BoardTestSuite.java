@@ -1,5 +1,6 @@
 package com.kodilla.stream.portfolio;
 
+import javafx.beans.binding.When;
 import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;
@@ -202,5 +203,30 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(10, averageExam, 0.1);
+    }
+    @Test
+    public void testAddTaskListAverageWorkingOnTaskAnotherMethod() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        double sumOfElements = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .mapToDouble(t -> ChronoUnit.DAYS.between(t.getCreated(),LocalDate.now()))
+                .sum();
+        double quantityOfElements =  project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                //można usunąć to poniższe mpToDouble bo metodę count() można wywołać nie tylko na doublach, tak jak zdefiniowana metoda count
+                .mapToDouble(t -> ChronoUnit.DAYS.between(t.getCreated(),LocalDate.now()))
+                .count();
+        double average = sumOfElements/quantityOfElements;
+
+        //Then
+        Assert.assertEquals(10,average,0.1);
     }
 }
