@@ -5,7 +5,8 @@ public class ApplicationFood2Door {
         OrderFoodRetriever orderFoodRequestRetriever = new OrderFoodRetriever();
         OrderFood orderFoodRequest = orderFoodRequestRetriever.retrieve();
 
-        OrderingFoodProcessor orderingFoodProcessor = new OrderingFoodProcessor(new ProductInformationFoodService(), new ProductOrderFoodService());
+        OrderingFoodProcessor orderingFoodProcessor = new OrderingFoodProcessor
+                (new ProductInformationFoodService(), new ProductOrderFoodService());
         orderingFoodProcessor.process(orderFoodRequest);
     }
 }

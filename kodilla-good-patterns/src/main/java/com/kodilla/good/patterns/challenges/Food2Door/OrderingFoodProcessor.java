@@ -7,19 +7,19 @@ public class OrderingFoodProcessor {
     private OrderFoodService orderFoodService;
 
     public OrderingFoodProcessor(final InformationFoodService informationFoodService,
-                             final OrderFoodService orderFoodService)  {
+                                 final OrderFoodService orderFoodService) {
         this.informationFoodService = informationFoodService;
         this.orderFoodService = orderFoodService;
     }
 
-    public OrderFoodDto process (OrderFood orderFood) {
-        boolean isOrdered = orderFoodService.order(orderFood.getProducent(),orderFood.getTypoOfProducts(), orderFood.getQuantityOfProducts());
+    public OrderFoodDto process(OrderFood orderFood) {
+        boolean isOrdered = orderFoodService.order(orderFood.getProducent(), orderFood.getTypoOfProducts(), orderFood.getQuantityOfProducts());
 
-        if(isOrdered) {
-            informationFoodService.inform(orderFood.getProducent(),orderFood);
+        if (isOrdered) {
+            informationFoodService.inform(orderFood.getProducent(), orderFood);
             return new OrderFoodDto(orderFood, true);
-        }else{
-            return new OrderFoodDto(orderFood,false);
+        } else {
+            return new OrderFoodDto(orderFood, false);
         }
     }
 }
