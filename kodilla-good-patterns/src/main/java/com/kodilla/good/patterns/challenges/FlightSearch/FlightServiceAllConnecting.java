@@ -1,10 +1,9 @@
 package com.kodilla.good.patterns.challenges.FlightSearch;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class FlightServiceAllConnecting {
     Set<Flight> flightServiceAllConnecting(Set<Flight> flightDataBase, String flightFrom, String flightTo, String flightVia) {
@@ -19,6 +18,9 @@ public class FlightServiceAllConnecting {
         Set<Flight> flightsConnect = new HashSet<>();
         flightsConnect.addAll(flightServiceFromToVia);
         flightsConnect.addAll(flightServiceViaToTo);
-        return  flightsConnect;
+        if(flightsConnect.isEmpty()) {
+            System.out.println("empty");
+        }
+        return flightsConnect;
     }
 }
