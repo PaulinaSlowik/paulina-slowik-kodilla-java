@@ -2,7 +2,7 @@ package com.kodilla.patterns.factory.tasks;
 
 
 public class TaskFactory {
-    public static final SHOPPING = "SHOPING"
+    public static final SHOPPING = "SHOPPING";
     public static final PAINTING = "PAINTING";
     public static final DRIVING = "DRIVING";
 
