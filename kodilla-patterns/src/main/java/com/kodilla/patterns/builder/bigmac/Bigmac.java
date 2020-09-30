@@ -46,7 +46,7 @@ public final class Bigmac {
         this.ingredients = ingredients;
     }
 
-    public String getBun() {
+    public String getRoll() {
         return roll;
     }
 
