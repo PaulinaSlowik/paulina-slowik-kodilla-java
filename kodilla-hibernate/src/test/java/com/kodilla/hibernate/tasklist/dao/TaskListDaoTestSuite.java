@@ -23,17 +23,17 @@ public class TaskListDaoTestSuite {
         //Given
         TaskList taskList = new TaskList(LISTNAME,DESCRIPTION);
         taskListDao.save(taskList);
-//        String listName = taskList.getListName();
+        String listName = taskList.getListName();
 
         //When
-        List<TaskList> readTaskLists = taskListDao.findByListName(LISTNAME);
+        List<TaskList> readTaskLists = taskListDao.findByListName(listName);
 
         //Then
-        Assert.assertEquals(6,readTaskLists.size());
+        Assert.assertEquals("Test: List name, Task 17.2",readTaskLists.get(0).getListName());
+//        Assert.assertEquals(1,readTaskLists.size());
 
         //CleanUp
-//        int id = readTaskLists.get(0).getId();
-//        taskListDao.deleteById(id);
-        taskListDao.delete(taskList);
+        int id = readTaskLists.get(0).getId();
+        taskListDao.deleteById(id);
     }
 }
