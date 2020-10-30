@@ -14,7 +14,7 @@ public class Task {
     private Date created;//data utworzenia zadania, Utworzenie nowego obiektu klasy Date automatycznie inicjuje go na bieżącą datę
     private int duration;//czas trwania zadania
     private TaskFinancialDetails taskFinancialDetails;
-//    private TaskList taskList;
+    private TaskList taskList;//informuje do której listy należy zadanie
 
     public Task() {
     }
@@ -55,9 +55,11 @@ public class Task {
         return taskFinancialDetails;
     }
 
-//    public TaskList getTaskList() {
-//        return taskList;
-//    }
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -79,7 +81,7 @@ public class Task {
         this.taskFinancialDetails = taskFinancialDetails;
     }
 
-//    public void setTaskList(TaskList taskList) {
-//        this.taskList = taskList;
-//    }
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
 }

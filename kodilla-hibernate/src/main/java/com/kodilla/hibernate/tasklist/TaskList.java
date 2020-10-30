@@ -13,7 +13,7 @@ public class TaskList {
     private int id;
     private String listName;
     private String description;
-//    private List<Task> tasks = new ArrayList<>();
+    private List<Task> tasks = new ArrayList<>(); //zawiera listę zadań należących do listy
 
     public TaskList() {
     }
@@ -42,15 +42,15 @@ public class TaskList {
         return description;
     }
 
-//    @OneToMany(
-//            targetEntity = Task.class,
-//            mappedBy = "taskList",
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY
-//    )
-//    public List<Task> getTasks() {
-//        return tasks;
-//    }
+    @OneToMany(
+            targetEntity = Task.class,
+            mappedBy = "taskList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Task> getTasks() {
+        return tasks;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -64,7 +64,7 @@ public class TaskList {
         this.description = description;
     }
 
-//    private void setTasks(List<Task> tasks) {
-//        this.tasks = tasks;
-//    }
+    private void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 }
