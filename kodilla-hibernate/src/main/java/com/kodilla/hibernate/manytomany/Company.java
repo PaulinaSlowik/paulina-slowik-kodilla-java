@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.serachCompanyWhoFirstThreeCharactersOfName",
-        query = "SELECT * FROM COMAPNIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME",
+        name = "Company.searchCompanyWhoFirstThreeCharactersOfName",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1,3) = :NAME",
         resultClass = Company.class
 )
 

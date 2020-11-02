@@ -8,14 +8,16 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+
     @Autowired
     EmployeeDao employeeDao;
 
@@ -45,24 +47,26 @@ public class CompanyDaoTestSuite {
         //When
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
+
         companyDao.save(dataMaesters);
         int dataMaestersId = dataMaesters.getId();
+
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
         //Then
         Assert.assertNotEquals(0, softwareMachineId);
-        Assert.assertNotEquals(0, dataMaestersId);
+        Assert.assertNotEquals(0,dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        try {
-            companyDao.deleteById(softwareMachineId);
-            companyDao.deleteById(dataMaestersId);
-            companyDao.deleteById(greyMatterId);
-        } catch (Exception e) {
-            //do nothing
-        }
+
+        companyDao.delete(softwareMachine);
+        companyDao.delete(dataMaesters);
+        companyDao.delete(greyMatter);
+        companyDao.deleteAll();
+
+
     }
 
     @Test
@@ -103,4 +107,5 @@ public class CompanyDaoTestSuite {
         companyDao.deleteAll();
 
     }
+
 }
