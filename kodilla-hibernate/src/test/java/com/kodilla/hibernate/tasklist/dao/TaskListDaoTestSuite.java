@@ -19,6 +19,7 @@ import java.util.List;
 public class TaskListDaoTestSuite {
     @Autowired
     private TaskListDao taskListDao;
+    @Autowired
     private TaskDao taskDao;
     private static final String LISTNAME = "Test: List name, Task 17.2";
     private static final String DESCRIPTION = "Test: Learn Hibernate, Task 17.2";

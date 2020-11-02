@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -59,5 +63,44 @@ public class CompanyDaoTestSuite {
         } catch (Exception e) {
             //do nothing
         }
+    }
+
+    @Test
+    public void testNamedQueries() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+
+        companyDao.save(softwareMachine);
+        //int softwareMachinesId = softwareMachine.getId();
+
+        employeeDao.save(johnSmith);
+        //int johnSmithId = johnSmith.getId();
+
+        employeeDao.save(lindaKovalsky);
+        //int lindaKovalskyId = lindaKovalsky.getId();
+
+        //When
+        List<Company> searchCompany = companyDao.searchCompanyWhoFirstThreeCharactersOfName("Sof");
+        List<Employee> searchLastNameSmith = employeeDao.searchEmployeeFromLastName("Smith");
+        List<Employee> searchLastNameNowak = employeeDao.searchEmployeeFromLastName("Nowak");
+
+        //Then
+        Assert.assertEquals(1, searchCompany.size());
+        Assert.assertEquals(1, searchLastNameSmith.size());
+        Assert.assertEquals(0, searchLastNameNowak.size());
+
+        //CleanUp
+        companyDao.delete(softwareMachine);
+        employeeDao.delete(johnSmith);
+        employeeDao.delete(lindaKovalsky);
+        employeeDao.deleteAll();
+        companyDao.deleteAll();
+
     }
 }
